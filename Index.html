@@ -1,26 +1,173 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+
     <title>CheckList Diário</title>
+    
+        <!-- FAVICON (PWA + BROWSER) -->
+
+<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="./img/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./img/icon-512.png">
+
+<link rel="apple-touch-icon" href="./img/icon-192.png">
+
+<meta name="theme-color" content="#1d2671">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#1d2671">
+
 </head>
+
 <body>
+
+    <!-- ================================= -->
+    <!-- SIDEBAR DASHBOARD -->
+    <!-- ================================= -->
+
+    <div class="sidebar">
+
+        <h2>📊 Dashboard</h2>
+
+        <button>🏠 Início</button>
+        <button>📝 Tarefas</button>
+        <button>📈 Estatísticas</button>
+
+        <button onclick="document.body.classList.toggle('dark-mode')">
+            🌙 Dark Mode
+        </button>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- CONTAINER PRINCIPAL -->
+    <!-- ================================= -->
 
     <div class="container">
 
-        <h1>✅ CheckList Diário</h1>
+        <!-- PERFIL -->
+
+        <div class="profile-area">
+
+            <img
+                id="profilePhoto"
+                class="profile-photo"
+                src=""
+                alt="Foto de perfil"
+            >
+
+            <h1>✅ CheckList Diário</h1>
+
+            <p id="userEmail"></p>
+
+            <button id="logoutBtn" class="logout-btn">
+                Sair
+            </button>
+
+        </div>
+
+
+        <!-- ESTATÍSTICAS -->
+
+        <div class="stats">
+
+            <div class="card-stat">
+                <h2 id="totalTasks">0</h2>
+                <span>Total</span>
+            </div>
+
+            <div class="card-stat">
+                <h2 id="completedTasks">0</h2>
+                <span>Concluídas</span>
+            </div>
+
+            <div class="card-stat">
+                <h2 id="pendingTasks">0</h2>
+                <span>Pendentes</span>
+            </div>
+
+        </div>
+
+
+        <!-- PESQUISA -->
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔎 Pesquisar tarefa"
+        >
+
+
+        <!-- FILTROS -->
+
+        <div class="filters">
+
+            <button class="filter-btn active" data-filter="all">
+                Todas
+            </button>
+
+            <button class="filter-btn" data-filter="pending">
+                Pendentes
+            </button>
+
+            <button class="filter-btn" data-filter="completed">
+                Concluídas
+            </button>
+
+        </div>
+
+
+        <!-- INPUTS -->
 
         <div class="input-area">
-            <input type="text" id="taskInput" placeholder="Digite uma tarefa...">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Digite uma tarefa"
+            >
+
+            <select id="categorySelect">
+
+                <option value="Pessoal">🏠 Pessoal</option>
+                <option value="Trabalho">💼 Trabalho</option>
+                <option value="Estudos">📚 Estudos</option>
+
+            </select>
+
+
+            <select id="prioritySelect">
+
+                <option value="Alta">🔴 Alta</option>
+                <option value="Média">🟡 Média</option>
+                <option value="Baixa">🟢 Baixa</option>
+
+            </select>
+
+
+            <input type="date" id="dateInput">
 
             <button id="addBtn">
                 Adicionar
             </button>
+
         </div>
 
+
+        <!-- AÇÕES -->
+
         <div class="actions">
+
             <button id="shareBtn">
                 Compartilhar
             </button>
@@ -28,13 +175,25 @@
             <button onclick="window.print()">
                 Imprimir
             </button>
+
         </div>
+
+
+        <!-- LISTA DE TAREFAS -->
 
         <ul id="taskList"></ul>
 
     </div>
 
-    <script src="script.js"></script>
+
+    <!-- TOAST -->
+
+    <div id="toast" class="toast"></div>
+
+
+    <!-- SCRIPT -->
+
+    <script type="module" src="script.js"></script>
 
 </body>
 </html>

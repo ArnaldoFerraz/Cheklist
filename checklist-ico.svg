@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Fundo glass -->
+  <rect width="512" height="512" rx="120" fill="url(#bg)"></rect>
+
+  <!-- Card central -->
+  <rect x="110" y="120" width="292" height="272" rx="40" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.2)"></rect>
+
+  <!-- Check -->
+  <path d="M170 270 L230 330 L350 200" stroke="white" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Glow -->
+  <circle cx="160" cy="150" r="120" fill="rgba(0,201,255,0.25)"></circle>
+  <circle cx="360" cy="380" r="140" fill="rgba(195,55,100,0.25)"></circle>
+
+  <!-- Gradiente -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#1d2671"></stop>
+      <stop offset="100%" stop-color="#c33764"></stop>
+    </linearGradient>
+  </defs>
+
+</svg>

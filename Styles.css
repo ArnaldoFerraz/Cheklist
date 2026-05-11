@@ -1,381 +1,336 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-*{
+/* ================================= */
+/* RESET */
+/* ================================= */
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+/* ================================= */
+/* BASE APP */
+/* ================================= */
+
+body {
     font-family: 'Poppins', sans-serif;
-
-    background: linear-gradient(
-        135deg,
-        #1d2671,
-        #c33764
-    );
-
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
-    align-items: center;
-
     padding: 20px;
+
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    color: white;
 }
 
-/* CONTAINER */
+/* ================================= */
+/* CONTAINER GERAL */
+/* ================================= */
 
-.container{
-    width: 100%;
-    max-width: 450px;
+.container {
+    width: min(900px, 100%);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ================================= */
+/* SIDEBAR */
+/* ================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 240px;
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar button {
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
 
     background: rgba(255,255,255,0.12);
-
-    backdrop-filter: blur(15px);
-
-    border: 1px solid rgba(255,255,255,0.2);
-
-    border-radius: 25px;
-
-    padding: 30px;
-
-    box-shadow:
-        0 8px 32px rgba(0,0,0,0.35);
-
-    animation: fadeIn 0.7s ease;
-}
-
-/* TÍTULO */
-
-h1{
-    text-align: center;
-
     color: white;
-
-    margin-bottom: 25px;
-
-    font-size: 32px;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
-
-    text-shadow: 0 0 10px rgba(255,255,255,0.3);
-}
-
-/* INPUT */
-
-.input-area{
-    display: flex;
-    gap: 10px;
-
-    margin-bottom: 15px;
-}
-
-input{
-    flex: 1;
-
-    padding: 14px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    outline: none;
-
-    background: rgba(255,255,255,0.18);
-
-    color: white;
-
-    font-size: 15px;
-
-    transition: 0.3s;
-}
-
-input::placeholder{
-    color: rgba(255,255,255,0.7);
-}
-
-input:focus{
-    background: rgba(255,255,255,0.28);
-
-    box-shadow:
-        0 0 10px rgba(255,255,255,0.25);
-}
-
-/* BOTÕES */
-
-button{
-    border: none;
-
-    border-radius: 14px;
-
-    padding: 12px 18px;
 
     cursor: pointer;
-
-    font-weight: 500;
-
-    transition: 0.3s;
-
-    color: white;
-
-    background: linear-gradient(
-        135deg,
-        #00c9ff,
-        #92fe9d
-    );
-
-    box-shadow:
-        0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.2s;
 }
 
-button:hover{
-    transform: translateY(-2px) scale(1.03);
-
-    opacity: 0.92;
+.sidebar button:hover {
+    transform: translateX(5px);
 }
 
-/* BOTÕES SECUNDÁRIOS */
+/* ================================= */
+/* PÁGINAS (SPA) */
+/* ================================= */
 
-.actions{
-    display: flex;
-    gap: 10px;
+.page {
+    display: none;
+}
 
+.page.active {
+    display: block;
+    animation: fade 0.3s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ================================= */
+/* PERFIL */
+/* ================================= */
+
+.profile-area {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid white;
+}
+
+/* ================================= */
+/* STATS */
+/* ================================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
     margin-bottom: 20px;
 }
 
-.actions button{
-    flex: 1;
+.card-stat {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
 }
 
-/* LISTA */
+/* ================================= */
+/* INPUTS GERAIS APP */
+/* ================================= */
 
-ul{
+input,
+select,
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+input,
+select {
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ================================= */
+/* BOTÕES */
+/* ================================= */
+
+button {
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #00c9ff, #92fe9d);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* ================================= */
+/* LISTA TAREFAS */
+/* ================================= */
+
+ul {
     list-style: none;
 }
 
-/* TAREFA */
-
-li{
-    background: rgba(255,255,255,0.15);
-
-    border: 1px solid rgba(255,255,255,0.1);
-
-    border-radius: 16px;
-
-    padding: 14px 16px;
-
+li {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 18px;
+    border-radius: 18px;
     margin-bottom: 12px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    transition: 0.3s;
-
-    animation: slideUp 0.3s ease;
 }
 
-li:hover{
-    transform: translateY(-2px);
+/* ================================= */
+/* COMPLETADAS */
+/* ================================= */
 
-    background: rgba(255,255,255,0.2);
+.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
 }
 
-/* TEXTO DA TAREFA */
+/* ================================= */
+/* TOAST */
+/* ================================= */
 
-.task-content{
-    display: flex;
-    align-items: center;
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 
-    gap: 12px;
-
-    cursor: pointer;
-
-    width: 100%;
-}
-
-.task-text{
-    color: white;
-
-    font-size: 15px;
-
-    word-break: break-word;
-}
-
-/* CHECK */
-
-.check{
-    min-width: 24px;
-    height: 24px;
-
-    border-radius: 50%;
-
-    background: #00ff95;
-
-    color: #111;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 14px;
-
-    font-weight: bold;
+    background: #111;
+    padding: 15px 20px;
+    border-radius: 10px;
 
     opacity: 0;
-
-    transform: scale(0);
-
     transition: 0.3s;
 }
 
-/* COMPLETADA */
-
-.completed{
-    background: rgba(0,255,140,0.12);
-}
-
-.completed .check{
+.show-toast {
     opacity: 1;
-
-    transform: scale(1);
 }
 
-.completed .task-text{
-    text-decoration: line-through;
+/* ================================= */
+/* LOGIN (VERSÃO PROFISSIONAL) */
+/* ================================= */
 
-    opacity: 0.6;
+body.login-page {
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-/* BOTÃO DELETE */
-
-.delete-btn{
-    background: linear-gradient(
-        135deg,
-        #ff416c,
-        #ff4b2b
-    );
-
-    padding: 8px 12px;
-
-    border-radius: 10px;
-
-    font-size: 14px;
-
-    margin-left: 10px;
+/* fundo animado login */
+body.login-page::before,
+body.login-page::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: -1;
 }
 
-.delete-btn:hover{
-    transform: scale(1.08);
-
-    opacity: 0.95;
+body.login-page::before {
+    background: rgba(0, 201, 255, 0.25);
+    top: -100px;
+    left: -100px;
 }
 
-/* ANIMAÇÕES */
-
-@keyframes fadeIn{
-
-    from{
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to{
-        opacity: 1;
-        transform: scale(1);
-    }
+body.login-page::after {
+    background: rgba(195, 55, 100, 0.25);
+    bottom: -120px;
+    right: -120px;
 }
 
-@keyframes slideUp{
+/* container login */
+.login-container {
+    width: 100%;
+    max-width: 420px;
 
-    from{
-        opacity: 0;
-        transform: translateY(15px);
-    }
+    padding: 40px 30px;
 
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+    animation: fadeIn 0.5s ease;
 }
 
-/* SCROLL */
-
-::-webkit-scrollbar{
-    width: 8px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-::-webkit-scrollbar-thumb{
-    background: rgba(255,255,255,0.3);
-
-    border-radius: 10px;
+/* header login */
+.login-header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
+.login-header h1 {
+    font-size: 24px;
+}
+
+.login-header p {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* inputs login */
+.login-container input {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* botão google */
+.google-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* botões secundários */
+.secondary-btn {
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+}
+
+/* hover suave login */
+.google-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ================================= */
 /* RESPONSIVO */
+/* ================================= */
 
-@media(max-width: 500px){
+@media (max-width: 700px) {
 
-    .container{
-        padding: 22px;
-    }
-
-    h1{
-        font-size: 26px;
-    }
-
-    .input-area{
-        flex-direction: column;
-    }
-
-    .actions{
-        flex-direction: column;
-    }
-
-    button{
+    .sidebar {
+        position: relative;
         width: 100%;
-    }
-}
-
-/* IMPRESSÃO */
-
-@media print{
-
-    body{
-        background: white;
+        height: auto;
+        flex-direction: row;
     }
 
-    .container{
-        background: white;
-
-        box-shadow: none;
-
-        border: none;
+    .container {
+        margin-left: 0;
     }
 
-    h1{
-        color: black;
-        text-shadow: none;
-    }
-
-    input,
-    #addBtn,
-    #shareBtn,
-    .delete-btn{
-        display: none;
-    }
-
-    li{
-        background: #f2f2f2;
-
-        color: black;
-
-        border: 1px solid #ccc;
-    }
-
-    .task-text{
-        color: black;
-    }
 }

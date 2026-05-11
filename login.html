@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Login - CheckList Diário
+    </title>
+
+     <!-- FAVICON (PWA + BROWSER) -->
+
+<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="./img/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./img/icon-512.png">
+
+<link rel="apple-touch-icon" href="./img/icon-192.png">
+
+<meta name="theme-color" content="#1d2671">
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+</head>
+<body>
+
+    <div class="container login-container">
+
+        <div class="login-header">
+
+            <h1>
+                ✅ CheckList Diário
+            </h1>
+
+            <p>
+                Organize suas tarefas
+                com sincronização online
+            </p>
+
+        </div>
+
+        <form id="loginForm">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Digite seu email"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Digite sua senha"
+                required
+            >
+
+            <button type="submit">
+
+                Entrar
+
+            </button>
+
+            <button
+                type="button"
+                id="googleLogin"
+                class="google-btn"
+            >
+
+                Entrar com Google
+
+            </button>
+
+            <button
+                type="button"
+                id="resetPassword"
+                class="secondary-btn"
+            >
+
+                Esqueci minha senha
+
+            </button>
+
+            <button
+                type="button"
+                id="registerBtn"
+                class="secondary-btn"
+            >
+
+                Criar Conta
+
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script
+        type="module"
+        src="login.js"
+    ></script>
+
+</body>
+</html>
