@@ -16,7 +16,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -30,12 +30,13 @@ body {
 /* ================================= */
 
 .container {
-    width: min(900px, 100%);
+    width: min(900px, 95%);
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(15px);
     border-radius: 25px;
     padding: 30px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    margin-left: 240px;
 }
 
 /* ================================= */
@@ -220,7 +221,7 @@ li {
 }
 
 /* ================================= */
-/* LOGIN (VERSÃO PROFISSIONAL) */
+/* LOGIN */
 /* ================================= */
 
 body.login-page {
@@ -253,7 +254,6 @@ body.login-page::after {
     right: -120px;
 }
 
-/* container login */
 .login-container {
     width: 100%;
     max-width: 420px;
@@ -276,7 +276,6 @@ body.login-page::after {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* header login */
 .login-header {
     text-align: center;
     margin-bottom: 20px;
@@ -291,46 +290,69 @@ body.login-page::after {
     opacity: 0.7;
 }
 
-/* inputs login */
 .login-container input {
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* botão google */
 .google-btn {
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* botões secundários */
 .secondary-btn {
     background: transparent;
     color: rgba(255,255,255,0.7);
     font-size: 13px;
 }
 
-/* hover suave login */
 .google-btn:hover,
 .secondary-btn:hover {
     transform: translateY(-2px);
 }
 
 /* ================================= */
-/* RESPONSIVO */
+/* RESPONSIVO REAL */
 /* ================================= */
 
 @media (max-width: 700px) {
 
+    body {
+        padding: 10px;
+    }
+
     .sidebar {
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: auto;
+        height: 60px;
+
         flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        z-index: 1000;
+    }
+
+    .sidebar button {
+        font-size: 12px;
+        padding: 8px;
     }
 
     .container {
         margin-left: 0;
+        margin-top: 80px;
+        padding: 20px;
     }
 
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .card-stat {
+        padding: 15px;
+    }
 }
